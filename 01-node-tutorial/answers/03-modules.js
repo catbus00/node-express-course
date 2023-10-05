@@ -21,7 +21,8 @@ const os = require("os");
 console.log('08-os-module.js, Type:', os.type());
 require('./08-os-module');
 
-
+// 09-path-module //
+require('./09-path-module.js');
 
 
 
