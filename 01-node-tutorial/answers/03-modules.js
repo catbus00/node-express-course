@@ -15,6 +15,16 @@ console.log('06-alternative-flavor.js, Smoothie Slogan:', alternativeFlavor.slog
 // 07-mind-grenade code //
 require('./07-mind-grenade');
 
+// 08-os-module.js //
+// note: did not include more due to privacy concerns//
+const os = require("os");
+console.log('Type:', os.type());
+require('./08-os-module');
+
+
+
+
+
 
 
 
