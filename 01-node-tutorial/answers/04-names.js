@@ -4,4 +4,8 @@ const favoriteFruit = {
     bananas: "5",
 };
 
-module.exports = favoriteFruit;
+const apples = 'apples'
+const oranges = 'oranges'
+const lemons = 'lemons'
+
+module.exports = { favoriteFruit, apples, oranges, lemons }
