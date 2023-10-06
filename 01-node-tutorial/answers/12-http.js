@@ -1,7 +1,7 @@
 const http = require('http');
 
-//create a server object:
-http.createServer(function (req, res) {
-    res.write('Hello World!'); //write a response to the client
-    res.end(); //end the response
-  }).listen(3000);
+const server = http.createServer((req,res)=>{
+  res.write('Welcome to our home page')
+  res.end()
+})
+server.listen(3000)
