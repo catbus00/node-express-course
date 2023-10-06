@@ -1,10 +1,15 @@
 // 04-names.js code //
 const names = require("./04-names.js");
 console.log('04-names.js, value of apples:', names.apples)
+console.log()
 
 // 05-utils.js code //
-const greeting = require("./05-utils.js");
-console.log('05-utils.js:', greeting);
+const fruits = require("./05-utils.js");
+console.log('05-utils.js:', fruits);
+fruits(names.apples);
+fruits(names.oranges);
+fruits(names.lemons);
+
 
 // 06-alternative-flavor code //
 const alternativeFlavor = require('./06-alternative-flavor');
