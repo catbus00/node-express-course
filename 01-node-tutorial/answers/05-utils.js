@@ -1,2 +1,4 @@
-const helloWorld = () => "Hello World!";
-module.exports = helloWorld;
+const fruitFunction = (fruitName) => {
+    console.log(`My favorite fruit is ${fruitName}`)
+}
+module.exports = fruitFunction;
