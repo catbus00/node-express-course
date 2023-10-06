@@ -6,6 +6,3 @@ writeFileSync(path, 'Third Line\n', { flag: 'a' });
 
 const readLines= readFileSync(path, 'utf8');
 console.log('10-fs-sync.js:', readLines)
-
-
-
