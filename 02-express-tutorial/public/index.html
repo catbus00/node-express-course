@@ -1,3 +1,36 @@
+<html>
 Hello world.
 <br>
 This is a test.
+<br>
+<button id="fetchButton">Fetch Products</button>
+    <div id="productList"></div>
+
+    <script>
+        document.getElementById('fetchButton').addEventListener('click', () => {
+            fetch('/api/v1/products')
+                .then((response) => response.json())
+                .then((data) => {
+                    const productList = document.getElementById('productList');
+                    productList.innerHTML = createProductList(data);
+                })
+                .catch((error) => {
+                    console.error('Error with fetching:', error);
+                });
+        });
+
+        function createProductList(products) {
+            if (products.length === 0) {
+                return 'No products found.';
+            }
+
+            return products.map((product) => `
+                <div>
+                    Product ID: ${product.id} <br>
+                    Product Name: ${product.name} <br>
+                    Product Price: ${product.price} <br>
+                    Product Desc: ${product.desc} <br>
+                </div>
+            `).join('');
+        }
+    </script>
