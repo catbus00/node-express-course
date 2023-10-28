@@ -1,15 +1,15 @@
 const express = require('express')
 const path = require('path')
 const app = express()
-const { products } = require('./data');
+const { products, people } = require('./data');
 
 const logger = function (req, res, next) {
     next();
   };
 
-app.use(express.static('./public'), logger)
+app.use(express.static('./public'))
 
-app.get('/', (req, res) => {
+app.get('/', logger, (req, res) => {
     res.sendFile(path.join(__dirname, './navbar-app/index.html'))
 })
 
@@ -19,6 +19,10 @@ app.get('/api/v1/test', (req, res) => {
 
 app.get('/api/v1/products', (req, res) => {
     res.json(products);
+});
+
+app.get('/api/v1/people', (req, res) => {
+    res.json(people);
 });
 
 app.get('/api/v1/query', (req, res) => {
