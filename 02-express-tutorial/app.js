@@ -7,7 +7,7 @@ const logger = function (req, res, next) {
     next();
   };
 
-app.use(express.static('./public'))
+app.use(express.static('./methods-public'))
 
 app.get('/', logger, (req, res) => {
     res.sendFile(path.join(__dirname, './navbar-app/index.html'))
@@ -25,10 +25,42 @@ app.get('/api/v1/people', (req, res) => {
     res.json(people);
 });
 
+app.get('/api/people', (req, res) => {
+    res.json(people);
+});
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
+app.post('/api/v1/people', (req, res) => {
+    if (req.body.name) {
+        people.push({ id: people.length + 1, name: req.body.name });
+        res.status(201).json({ success: true, name: req.body.name });
+    } else {
+        res.status(400).json({ success: false, message: "Please provide a name" });
+    }
+})
+
+app.post('/api/people', (req, res) => {
+    if (req.body.name) {
+        people.push({ id: people.length + 1, name: req.body.name });
+        res.status(201).json({ success: true, name: req.body.name });
+    } else {
+        res.status(400).json({ success: false, message: "Please provide a name" });
+    }
+});
+
+app.post('/login', (req, res) => {
+    if (req.body.name) {
+        people.push({ id: people.length + 1, name: req.body.name });
+        res.status(201).json({ success: true, name: req.body.name });
+    } else {
+        res.status(400).json({ success: false, message: "Please provide a name" });
+    }
+});
 app.get('/api/v1/query', (req, res) => {
     const userSearch = req.query.search || ""; 
-    const maxPrice = parseFloat(req.query.maxPrice) || Number.MAX_VALUE; // Default to a very high value if "maxPrice" is not provided
-
+    const maxPrice = parseFloat(req.query.maxPrice) || Number.MAX_VALUE; 
     const filteredProducts = products.filter((product) => {
         const searchMatch = product.name.startsWith(userSearch);
         const priceMatch = parseFloat(product.price) <= maxPrice;
