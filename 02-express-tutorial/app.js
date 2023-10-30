@@ -2,6 +2,8 @@ const express = require('express')
 const path = require('path')
 const app = express()
 const { products, people } = require('./data');
+const peopleRouter = require('./routes/people');
+
 
 const logger = function (req, res, next) {
     next();
@@ -21,16 +23,15 @@ app.get('/api/v1/products', (req, res) => {
     res.json(products);
 });
 
-app.get('/api/v1/people', (req, res) => {
-    res.json(people);
-});
-
 app.get('/api/people', (req, res) => {
     res.json(people);
 });
 
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.use("/api/v1/people", peopleRouter);
 
 app.post('/api/v1/people', (req, res) => {
     if (req.body.name) {

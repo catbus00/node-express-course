@@ -46,9 +46,11 @@
 
       const fetchPeople = async () => {
         try {
-          const { data } = await axios.get('/api/people');
+          const response = await axios.get('/api/people');
+          console.log(response);
+          const { data } = response;
 
-          const people = data.data.map((person) => {
+          const people = data.map((person) => {
             return `<h5>${person.name}</h5>`;
           });
           result.innerHTML = people.join('');
@@ -72,7 +74,6 @@
           h5.textContent = data.person;
           result.appendChild(h5);
         } catch (error) {
-          // console.log(error.response)
           formAlert.textContent = error.response.data.msg;
         }
         input.value = '';
