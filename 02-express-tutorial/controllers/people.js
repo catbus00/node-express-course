@@ -27,10 +27,11 @@ function getPersonById(req, res) {
 
 function updatePerson(req, res) {
     const personId = parseInt(req.params.id);
-    const person = people.find(person => person.id === personId);
-    if (person !== -1) {
+    const personIndex = people.findIndex((person) => person.id === personId);
+    
+    if (personIndex !== -1) {
         if (req.body.name) {
-            people[person].name = req.body.name;
+            people[personIndex].name = req.body.name;
             res.status(200).json({ success: true, message: "Person updated" });
         } else {
             res.status(400).json({ success: false, message: "Please provide a name" });
