@@ -7,7 +7,7 @@ const {
     updatePerson, 
     deletePerson } = require("../controllers/people.js");
 
-router.post('/', (req, res) => {
+router.post('/api/people/', (req, res) => {
     addPerson(req, res);
 })
 router.get('/', getPeople);
