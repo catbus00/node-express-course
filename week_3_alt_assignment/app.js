@@ -24,7 +24,7 @@
  *
  * Get creative, have fun, and make sure to request code review for whatever
  * you create!
- */
+ */git checkout -b 
 
  const app = require("./stuffThatYouCanIgnore"); // take my word for it :)
 
