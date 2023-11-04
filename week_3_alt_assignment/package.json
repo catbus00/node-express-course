@@ -2,7 +2,7 @@
   "name": "node_express_example_template",
   "version": "1.0.0",
   "description": "Boilerplate for a node & express example",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "nodemon index.js"
   },
