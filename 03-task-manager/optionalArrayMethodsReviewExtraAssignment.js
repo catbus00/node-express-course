@@ -1,5 +1,7 @@
 // Review of JavaScript iterative Array methods (`.map`, `.filter` and `.forEach`)
 
+const { name } = require("tar/lib/types");
+
 // This is an optional extra assignment
 
 ///////////////////////////// Questions ///////////////////////////////////////
@@ -123,7 +125,22 @@ object.behavior()
 // problem related to these names, and then implement the solution. The
 // challenges are:
 //
+
+const names = [
+  'Dimitry SantiAgo',
+  'Carlos d. Perez',
+  'tam  person',
+  'Mariana Gomez',
+  'Amy You'
+];
+
 // - Create a new array with only each person's last name
+
+const lastNamePerson = names.map((name) => {
+  const separatedNames = name.split(' ');
+  return separatedNames[separatedNames.length - 1]})
+console.log(`Last names are: ${lastNamePerson}`)
+
 // - Filter names that don't match the format "<first> <last>"
 //   - Should remove Tam because she has a double-space
 //   - Should remove Carlow because he has a middle-name
@@ -133,26 +150,44 @@ object.behavior()
 //     - "Timmy-Turner"
 //     - "Billy\nBob"
 //     - etc.
+
+//check to see if it has uppercase first name and uppercase last name, with two strings
+//format first last
+//return value only if there is one space
+
+const filteredNames = names.filter((name) => name.split(' ').length === 2);
+console.log(`Filtered names are: ${filteredNames}`)
+
 // - Create a new array where everyone's name is converted to "Title Case"
 //   - The first character of each word should be uppercase
 //   - All other characters in the word should be lowercase
 //   - expected output is ['Dimitry Santiago', 'Carlos D. Perez', 'Tam Person', ...]
+
+const titleCase = names.map((name) => name.charAt(0).toUpperCase() + name.slice(1))
+console.log(`Title Case names are: ${titleCase}`)
+
 // - Last Challenge:
 //     Remove names with the wrong format
 //     AND change it to "Title Case"
 //     AND remove people whose last name ends with z
 //     AND write a message asking them to sign up
 //
+
+const finalChallenge = 
+  filteredNames
+  .map(name => name.split(' ')
+    .map(name => name.charAt(0).toUpperCase() + name.substring(1).toLowerCase())
+    .join(' '))
+  .filter(name => !name.endsWith('z'))
+  .map(name => `Hi ${name}! Sign up today to get a free dinner.`)
+  .join('\n');
+
+console.log(`Final Challenge: ${finalChallenge}`)
+
+
 // For an extra assignment, you may implement these yourself! Include your
 // changes to this file with your MR for week 3.
 
-const names = [
-  'Dimitry SantiAgo',
-  'Carlos d. Perez',
-  'tam  person',
-  'Mariana Gomez',
-  'Amy You'
-];
 
 ///////////////////////////////////////////////////////////////////////////////
 //// put your answers above if you wish to do the challenges on your own //////

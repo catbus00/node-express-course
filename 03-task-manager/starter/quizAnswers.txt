@@ -1,0 +1,16 @@
+### Quickly explain how middleware is used in an Express application. ###
+Middleware is executed after a server receives the request and 
+before the controller actions send the response. 
+It has access to the request object, response object, and helps 
+to process the request before the server sends the response. 
+
+### What does CRUD stand for? ###
+CREATE, READ, UPDATE and DELETE
+
+### You are careful to store your sensitive information in a .env file. ###
+### How do you get your app to access the information in the .env file? ###
+You can have the app access an .env.local file. You can use a library or method to read the values from the .env file, loading them 
+as environment variables in the app. 
+### How do you protect the contents of the .env file so that it is not stored in your Github repository? ###
+It needs to be saved as a hidden file with a .env (e.g., .env.local) and added to .gitignore. 
+This ensures that gitignore will not publish your contents to a public repository, effectively keeping the file private.
